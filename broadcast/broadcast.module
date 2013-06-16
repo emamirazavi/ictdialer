@@ -1043,7 +1043,8 @@ function broadcast_campaign_service_stop($campaign_id) {
 
       // To fix campaign stop and resume issue
       $camp['campaign_id'] = $campaign_id;
-      $camp['status']      = CAMPAIGN_RUNNING;
+      // Make camp Paused after making it stopped with killing it's proccess
+      $camp['status']      = CAMPAIGN_PAUSED;
       drupal_write_record('broadcast_campaign', $camp, 'campaign_id');
       // stop resume issue
 
